@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kidney Disease Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function showImage(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('image-viewer').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="/static/kidney.jpg" id="bgimg"/> 
+    <div class="container">
+        <h1>Kidney Disease Prediction</h1>
+        
+        <form id="score-predictor-form" action="/predict" method="post" enctype="multipart/form-data">
+            <div class="image-container">
+                <img id="image-viewer" name="image" src="#" alt="Image Viewer" class="image-viewer" />
+            </div>
+            <div class="button-container">
+                <input type="file" accept="image/*" onchange="showImage(this);" style="display: none;" id="image-input" name="image1" />
+                <label for="image-input" class="upload-button">Upload Image</label>
+                <button type="button" onclick="document.getElementById('score-predictor-form').submit();" class="upload-button">Predict</button>
+            </div>
+        </form>
+        <h2>{{results}}</h2>
+    </div>
+    <footer>
+        <p>Made with ❤️ by Shyam Patel</p>
+        <div>
+            <a href="https://www.linkedin.com/in/shyam-patel-data-science-data-scientist" id="linkedin" target="_blank"><img src="/static/linkedin.png" alt="LinkedIn"></a>
+            <a href="https://github.com/shyam8898" id="github" target="_blank"><img src="/static/github.png" alt="GitHub"></a>
+        </div>
+        <p>&copy; 2023 - All rights reserved</p>
+    </footer>
+</body>
+</html>

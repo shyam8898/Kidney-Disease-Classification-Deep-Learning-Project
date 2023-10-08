@@ -129,8 +129,8 @@ def decodeImage(imgstring, fileName):
         f.close()
 
 
-def encodeImageIntoBase64(croppedImagePath):
-    with open(croppedImagePath, "rb") as f:
-        return base64.b64encode(f.read())
+def encodeImageIntoBase64(image_file):
+    image_bytes = image_file.read()
+    return base64.b64encode(image_bytes).decode('utf-8')
 
 
