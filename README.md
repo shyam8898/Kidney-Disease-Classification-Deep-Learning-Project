@@ -72,6 +72,8 @@ python script.py
 
 Run this to export as env variables:
 
+gedit ~/.bashrc
+
 ```bash
 
 export MLFLOW_TRACKING_URI=https://dagshub.com/shyam8898/Kidney-Disease-Classification-Deep-Learning-Project.mlflow
